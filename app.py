@@ -32,4 +32,6 @@ def create_item(name):
     for store in stores:
         if store["name"] == name:
             new_item = {"name": request_data["name"], "price": request_data["price"]}
-
+            store["items"].append(new_item)
+            return new_item, 201
+    return {"message":"Store not found"}, 404
